@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #673AB7;
+  border-bottom: 1px solid #8462c1;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+.header .title-group {
+  margin-left: 25px;
+  cursor: pointer;
+}
+
+.header .title-group i {
+  margin-right: 5px;
+}

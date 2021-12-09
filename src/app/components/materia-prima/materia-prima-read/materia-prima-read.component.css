@@ -1,0 +1,44 @@
+table {
+  width: 100%;
+}
+
+table td a {
+  cursor: pointer;
+}
+
+.mat-row .mat-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.mat-row:hover .mat-cell {
+  border-color: #d3d1d1;
+}
+
+.row-is-clicked {
+  transition: 0.2s;
+  background: #F5F5F5;
+  font-weight: 500;
+}
+
+.edit i {
+  color: #1bc5bd;
+}
+
+.delete>i {
+  color: #f64e60;
+}
+
+.ml-1 {
+  margin-left: 1rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.center {
+  text-align: center
+}

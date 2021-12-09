@@ -1,0 +1,30 @@
+<mat-card class="mat-elevation-z3">
+  <mat-card-title>Novo Insumos</mat-card-title>
+  <form (ngSubmit)="createInsumos(form)" #form="ngForm" [formGroup]="insumosForm">
+
+    <mat-form-field>
+      <mat-label>Produto</mat-label>
+      <mat-select formControlName="produto" name="produto" [(value)]="produto">
+        <!-- Mudar [value] para produto.id, caso seja apenas o id -->
+        <mat-option *ngFor="let produto of produtos" [value]="produto">{{produto.produto}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <mat-label>Matéria Prima</mat-label>
+      <mat-select formControlName="materiaPrima" name="materiaPrima" [(value)]="materiaPrima">
+        <!-- Mudar [value] para materiaPrima.id, caso seja apenas o id -->
+        <mat-option *ngFor="let materiaPrima of materiaPrimas" [value]="materiaPrima">{{materiaPrima.nome}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input type="number" matInput placeholder="Quantidade" formControlName="quantidade" name="quantidade" required>
+    </mat-form-field>
+
+    <div class="button-group">
+      <button mat-raised-button type="submit" color="primary" [disabled]="insumosForm.invalid">Salvar</button>
+      <button mat-raised-button type="button" routerLink="/insumos" class="ml-2">Cancelar</button>
+    </div>
+  </form>
+</mat-card>

@@ -1,0 +1,31 @@
+<button mat-raised-button routerLink="/produtos/create" class="mb-1" color="primary">Novo Produto</button>
+<button mat-raised-button routerLink="/produtos/update/{{produtoSelecionado?.id}}"
+  [disabled]="produtoSelecionado == null" class="mb-1 ml-1" color="accent">Editar Produto</button>
+<button mat-raised-button (click)="deleteProduto()" [disabled]="produtoSelecionado == null" class="mb-1 ml-1"
+  color="warn">Remover Produto</button>
+<button mat-raised-button (click)="unselectProduto()" [disabled]="produtoSelecionado == null" class="mb-1 ml-1"
+  color="basic">Desselecionar Produto</button>
+
+<div class="mat-elevation-z4">
+  <table mat-table class="full-width-table" [dataSource]="produtos">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef class="center">Id</th>
+      <td mat-cell *matCellDef="let row" class="center">{{row.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="produto">
+      <th mat-header-cell *matHeaderCellDef class="center">Produto</th>
+      <td mat-cell *matCellDef="let row" class="center">{{row.produto}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="valor">
+      <th mat-header-cell *matHeaderCellDef class="center">Valor</th>
+      <td mat-cell *matCellDef="let row" class="center">{{row.valor | currency: 'BRL'}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row (click)="selectProduto(row)" [class.row-is-clicked]="produtoSelecionado?.id == row.id"
+      *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
